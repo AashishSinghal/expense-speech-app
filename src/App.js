@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Grid } from "@material-ui/core";
+import React from "react";
+import "./App.css";
+import Details from "./Components/Details";
+import Main from "./Components/Main/Main";
+import useStyles from "./styles";
 
 function App() {
+  const classes = useStyles();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Grid
+        className={classes.grid}
+        container
+        spacing={0}
+        alignItems="center"
+        justify="center"
+        style={{ height: "100vh" }}
+      >
+        <Grid item xs={12} sm={3}>
+          <Details title='Income' />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <Main/>
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <Details title='Expense'/>
+        </Grid>
+      </Grid>
     </div>
   );
 }
